@@ -3,13 +3,40 @@
     background: url('../images/quiz-bg-image.jpg') no-repeat center center;
     background-size: cover;
     height: 100vh;
+    opacity: 0.97;
     margin-bottom: 0;
 }
 
-.center {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    padding: 10px;
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
+
+.btn {
+    padding: 2rem 4.5rem;
+    font-size: 2.5rem;
+    line-height: normal;
+    border-radius: 1rem;
+    background-color: #00c985;
+    box-shadow: 0 4px 0 0 #00a06a;
+    border: none;
+    text-transform: uppercase;
+    font-family: 'Quicksand', sans-serif;
+    opacity: 0.95;
+    color: white;
+}
+
+.btn:hover {
+    background-color: #02e095;
+    color: white;
+    text-decoration: none;
+}
+
+.btn:focus {
+    box-shadow: none;
+}
+
+/* ToDo: add media queries for the button */
