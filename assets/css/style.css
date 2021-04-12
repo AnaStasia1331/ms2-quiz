@@ -1,0 +1,15 @@
+.container-fluid {
+
+    background: url('../images/quiz-bg-image.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    margin-bottom: 0;
+}
+
+.center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
