@@ -1,0 +1,76 @@
+/* Question card page: container */
+
+.container-fluid {
+
+    background-color: #C3F2FD;
+    background-size: cover;
+    height: 100vh;
+    margin-bottom: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Question card page: card */
+
+.card {
+    width: 45rem;
+}
+
+.card-header {
+    background-color: #C5CED9;
+}
+
+/* Question card page: question section */
+
+#question-section {
+    padding: 0;
+}
+
+.list-group-item {
+    font-size: 22px;
+}
+
+.option-numbering {
+    display: inline;
+    float: inline-start;
+    font-weight: bold;
+    border-radius: 50%;
+    background-color: #FDC167;
+    margin-right: 5px;
+    padding: 10px;
+}
+
+.option-text {
+    display: inline;
+    float: inline-end;
+
+}
+
+hr {
+    margin-top: 0;
+}
+
+/* Question card page: progress section */
+
+#progress-section {
+    font-size: 20px;
+    font-weight: bold;
+    color: mediumblue;
+}
+
+/* Generic */
+
+.inline-right {
+    display: inline;
+    float: right;
+}
+
+.inline-start {
+    display: inline;
+    float: inline-start;
+}

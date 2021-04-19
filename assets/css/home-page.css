@@ -1,10 +1,11 @@
+/* Home page*/
 .container-fluid {
-
-    background: url('../images/quiz-bg-image.jpg') no-repeat center center;
+    background: url('/assets/images//quiz-bg-image.jpg') no-repeat center center;
     background-size: cover;
     height: 100vh;
+    width: 100vw;
     opacity: 0.97;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 
