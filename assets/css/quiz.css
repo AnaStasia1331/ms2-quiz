@@ -19,6 +19,8 @@
 
 .card {
     width: 45rem;
+    border-width: 2px;
+    border-color: #596B7E;
 }
 
 .card-header {
@@ -33,6 +35,11 @@
 
 .list-group-item {
     font-size: 22px;
+}
+
+.list-group-item:hover {
+    background-color: #a1edff;
+
 }
 
 .option-numbering {
@@ -62,6 +69,8 @@ hr {
     font-weight: bold;
     color: mediumblue;
 }
+
+/* ToDo: add media query for smaller screen size to display score and question counters on different lines */
 
 /* Generic */
 
