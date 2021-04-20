@@ -83,3 +83,11 @@ hr {
     display: inline;
     float: inline-start;
 }
+
+.incorrectAnswer {
+    background-color: red;
+}
+
+.correctAnswer {
+    background-color: green;
+}
