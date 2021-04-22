@@ -24,10 +24,32 @@ $(document).ready(function () {
                 }
             },
             function (errorResponse) {
-                console.log(errorResponse);
+                if (errorResponse.status === 404) {
+                    console.log(errorResponse);
+                    $(".container").html(`
+                    <div class="row">
+                <div class="col-md-12">
+                    <div>
+                        <h1>Oops!</h1>
+                        <h1>404 Not Found</h1>
+                        <p style="font-size: larger;">Sorry, an error has occured, requested page not found :(</p>
+                    </div>
+                </div>
+            </div>`);
+                } else {
+                    console.log(errorResponse);
+                    $(".container").html(`
+                    <div class="row">
+                <div class="col-md-12">
+                    <div>
+                        <h2>Oops!</h2>
+                        <h2>Sorry, an error has occured :(</h2>
+                    </div>
+                </div>
+            </div>`);
+                }
             }).then(function () {
             loadNewQuestion();
-
         });
     };
 
@@ -42,11 +64,11 @@ $(document).ready(function () {
         }
         currentQuestion = questions[questionIndex];
         questionIndex++;
-        question.innerText = currentQuestion.question;
+        question.innerHTML = currentQuestion.question;
 
         for (let option of options) {
             const number = option.dataset["number"];
-            option.innerText = currentQuestion.options[number];
+            option.innerHTML = currentQuestion.options[number];
         }
     }
 
@@ -56,7 +78,7 @@ $(document).ready(function () {
 
             optionLine.addEventListener("click", function (event) {
                 var optionText = this.children[1];
-                var selectedAnswer = optionText.innerText;
+                var selectedAnswer = optionText.innerHTML;
 
                 if (checkAnswer(selectedAnswer)) {
                     increaseCorrectAnswersNum();
