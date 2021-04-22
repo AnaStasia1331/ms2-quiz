@@ -63,6 +63,7 @@ $(document).ready(function () {
             // get the final number of correct answers 
             var score = document.getElementById('score').innerText;
             // create the sessionStorage 'score' variable to pass it to the next page via url 
+            // source: https://lage.us/Javascript-Pass-Variables-to-Another-Page.html
             sessionStorage.setItem("score", score);
             // redirect to the Finish quiz page with 'score' parameter and value
             return window.location.assign("/finish-quiz.html?score=" + score);
@@ -83,7 +84,7 @@ $(document).ready(function () {
 
             optionLine.addEventListener("click", function (event) {
                 var optionText = this.children[1];
-                var selectedAnswer = optionText.innerHTML;
+                var selectedAnswer = optionText.innerText;
 
                 if (checkAnswer(selectedAnswer)) {
                     increaseCorrectAnswersNum();
