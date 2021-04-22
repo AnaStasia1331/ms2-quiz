@@ -5,6 +5,7 @@ $(document).ready(function () {
     let optionLines = document.getElementsByClassName('list-group-item');
     let currentQuestion = {};
     let questions = []
+    const MAX_QUESTIONS_NUM = 9;
     let questionIndex = 0;
 
     function fetchTriviaDbQuestions() {
@@ -36,6 +37,9 @@ $(document).ready(function () {
     }
 
     function loadNewQuestion() {
+        if (questionIndex === MAX_QUESTIONS_NUM) {
+            return window.location.assign("/finish-quiz.html");
+        }
         currentQuestion = questions[questionIndex];
         questionIndex++;
         question.innerText = currentQuestion.question;
@@ -89,6 +93,17 @@ $(document).ready(function () {
 
         return selectedAnswer === currentQuestion.answer;
     }
+
+    function increaseCorrectAnswersNum() {
+
+        var oldNum = parseInt(document.getElementById('score').innerText);
+        document.getElementById('score').innerText = ++oldNum;
+    }
+
+    function increaseQuestionCounter() {
+        document.getElementById('question-counter').innerText = questionIndex + '/10';
+    }
+
 
     startQuiz();
 });
