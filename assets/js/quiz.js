@@ -60,7 +60,12 @@ $(document).ready(function () {
 
     function loadNewQuestion() {
         if (questionIndex === MAX_QUESTIONS_NUM) {
-            return window.location.assign("/finish-quiz.html");
+            // get the final number of correct answers 
+            var score = document.getElementById('score').innerText;
+            // create the sessionStorage 'score' variable to pass it to the next page via url 
+            sessionStorage.setItem("score", score);
+            // redirect to the Finish quiz page with 'score' parameter and value
+            return window.location.assign("/finish-quiz.html?score=" + score);
         }
         currentQuestion = questions[questionIndex];
         questionIndex++;
