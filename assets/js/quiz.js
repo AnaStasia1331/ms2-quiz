@@ -2,6 +2,7 @@ $(document).ready(function () {
 
     let question = document.getElementById('question-text');
     let options = document.getElementsByClassName('option-text');
+    let optionLines = document.getElementsByClassName('list-group-item');
     let currentQuestion = {};
     let questions = []
     let questionIndex = 0;
@@ -22,10 +23,7 @@ $(document).ready(function () {
                 }
             },
             function (errorResponse) {
-
-                if (errorResponse.status === 404) {
-                    console.log(errorResponse);
-                }
+                console.log(errorResponse);
             }).then(function () {
             loadNewQuestion();
 
@@ -34,6 +32,7 @@ $(document).ready(function () {
 
     function startQuiz() {
         fetchTriviaDbQuestions();
+        addOptionEventListeners();
     }
 
     function loadNewQuestion() {
@@ -45,6 +44,50 @@ $(document).ready(function () {
             const number = option.dataset["number"];
             option.innerText = currentQuestion.options[number];
         }
+    }
+
+    function addOptionEventListeners() {
+
+        for (let optionLine of optionLines) {
+
+            optionLine.addEventListener("click", function (event) {
+                var optionText = this.children[1];
+                var selectedAnswer = optionText.innerText;
+
+                if (checkAnswer(selectedAnswer)) {
+                    increaseCorrectAnswersNum();
+                    // mark the correct answer green  
+                    optionLine.classList.add("correctAnswer");
+                    optionLine.classList.remove("hover-option");
+                    setTimeout(function () {
+                        optionLine.classList.remove("correctAnswer");
+                        optionLine.classList.add("hover-option");
+                        loadNewQuestion();
+                        increaseQuestionCounter();
+                    }, 700);
+
+
+
+                } else {
+                    // mark the correct answer red  
+                    optionLine.classList.add("incorrectAnswer");
+                    optionLine.classList.remove("hover-option");
+                    setTimeout(function () {
+                        optionLine.classList.remove("incorrectAnswer");
+                        optionLine.classList.add("hover-option");
+                        loadNewQuestion();
+                        increaseQuestionCounter();
+                    }, 700);
+
+                }
+            });
+
+        }
+    }
+
+    function checkAnswer(selectedAnswer) {
+
+        return selectedAnswer === currentQuestion.answer;
     }
 
     startQuiz();
