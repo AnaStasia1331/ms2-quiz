@@ -25,4 +25,17 @@ $(document).ready(function () {
         <h3>As Henry Ford once said, "Failure is only the opportunity to begin again more intelligently."</h3>
         `);
     }
+
+    $("#subscribe").click(function () {
+        var emailField = $('input[type="email"]');
+
+        if (emailField.attr("disabled")) {
+            emailField.prop("disabled", false);
+        } else {
+            emailField.val("");
+            emailField.prop("disabled", true);
+        }
+
+    });
+
 });
