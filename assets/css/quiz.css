@@ -8,14 +8,12 @@
     margin-bottom: 0;
 }
 
-.container {
-    display: flex;
-    justify-content: center;
+/* Question card page: card */
+
+#question-card {
     align-items: center;
     height: 100vh;
 }
-
-/* Question card page: card */
 
 .card {
     width: 45rem;

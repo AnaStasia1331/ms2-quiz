@@ -23,37 +23,41 @@
 <body>
     <main class="container-fluid">
         <div class="container">
-            <div class="card">
-                <div id="question-section" class="card-body">
-                    <div class="card-header">
-                        <h3 id="question-text">Question</h3>
+            <div id="question-card" class="row">
+                <div class="col">
+                    <div class="card mx-auto">
+                        <div id="question-section" class="card-body">
+                            <div class="card-header">
+                                <h3 id="question-text">Question</h3>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item hover-option">
+                                    <p class="option-numbering">A</p>
+                                    <p class="option-text" data-number="0">Option 1</p>
+                                </li>
+                                <li class="list-group-item hover-option">
+                                    <p class="option-numbering">B</p>
+                                    <p class="option-text" data-number="1">Option 2</p>
+                                </li>
+                                <li class="list-group-item hover-option">
+                                    <p class="option-numbering">C</p>
+                                    <p class="option-text" data-number="2">Option 3</p>
+                                </li>
+                                <li class="list-group-item hover-option">
+                                    <p class="option-numbering">D</p>
+                                    <p class="option-text" data-number="3">Option 4</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <hr>
+                        <div id="progress-section" class="card-body">
+                            <p class="inline-start">Correct answers: <span id="score">0</span></h4>
+                                <p class="inline-right">Question: <span id="question-counter">1/10</span></h4>
+                        </div>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item hover-option">
-                            <p class="option-numbering">A</p>
-                            <p class="option-text" data-number="0">Option 1</p>
-                        </li>
-                        <li class="list-group-item hover-option">
-                            <p class="option-numbering">B</p>
-                            <p class="option-text" data-number="1">Option 2</p>
-                        </li>
-                        <li class="list-group-item hover-option">
-                            <p class="option-numbering">C</p>
-                            <p class="option-text" data-number="2">Option 3</p>
-                        </li>
-                        <li class="list-group-item hover-option">
-                            <p class="option-numbering">D</p>
-                            <p class="option-text" data-number="3">Option 4</p>
-                        </li>
-                    </ul>
-                </div>
-                <hr>
-                <div id="progress-section" class="card-body">
-                    <p class="inline-start">Correct answers: <span id="score">0</span></h4>
-                        <p class="inline-right">Question: <span id="question-counter">1/10</span></h4>
                 </div>
             </div>
-        </div>
+        </div>>
     </main>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
