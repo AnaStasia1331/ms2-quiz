@@ -16,7 +16,7 @@ $(document).ready(function () {
         <h3 class="text-center header-padding">Congratulations and BRAVO! You are a walking encyclopaedia!</h3>
         `);
 
-    } else if (score > 2) {
+    } else if (score > 3) {
         $("#results-display").html(`
         <img class="d-block mx-auto" src="https://media.giphy.com/media/mgqefqwSbToPe/giphy.gif"
         alt="winner gif" />
@@ -45,15 +45,18 @@ $(document).ready(function () {
     function handleSubmit(event) {
         event.preventDefault();
 
-        if ($("input[type=subscribe]").is(
-                ":checked")) {
+        if (checkbox.is(":checked")) {
             var enteredValue = document.getElementById("emailField").value;
 
+            // similar to https://www.javatpoint.com/javascript-form-validation JavaScript email validation
             var atPosition = enteredValue.indexOf("@");
             var dotPosition = enteredValue.indexOf(".");
 
+            // Email id must contain the @ and . character
+            // There must be at least one character before and after the @.
+            // And the last dot must at least be one character after the @.
             if (atPosition < 1 || dotPosition - atPosition < 2) {
-                errorMsg.innerHTML = `Please enter correct email address`;
+                errorMsg.innerHTML = `Please enter valid email address`;
                 setTimeout(function () {
                     errorMsg.innerHTML = ""
                 }, 2000);
@@ -63,29 +66,25 @@ $(document).ready(function () {
                     errorMsg.innerHTML = ""
                 }, 2000);
             } else {
-                sendMail(form);
-                window.location = "/index.html";
+                $.when(sendMail(form)).then(function () {
+                    form.action = "/index.html"
+                    form.submit();
+                }, function (error) {
+                    console.log("FAILED", error);
+                });
             }
 
         } else {
-            window.location = "/index.html"
+            form.action = "/index.html"
+            form.submit();
         }
 
     }
-
+    // source: https://www.emailjs.com/docs/sdk/send/
     function sendMail(subscribeForm) {
-        emailjs.send("service_na1mfol", "template_mdnli8f", {
-                "from_email": subscribeForm.emailField.value,
-            })
-            .then(
-                function (response) {
-                    console.log("SUCCESS", response);
-                },
-                function (error) {
-                    console.log("FAILED", error);
-                }
-            );
-
+        return emailjs.send("service_na1mfol1", "template_mdnli8f", {
+            "from_email": subscribeForm.emailField.value,
+        })
     }
 
 });
