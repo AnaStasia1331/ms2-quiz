@@ -18,6 +18,7 @@ $(document).ready(function () {
                     question.question = triviaDbQuestion.question;
                     question.options = [...triviaDbQuestion.incorrect_answers];
                     question.options.push(triviaDbQuestion.correct_answer);
+                    shuffle(question.options);
                     question.answer = triviaDbQuestion.correct_answer;
                     questions.push(question);
 
@@ -130,6 +131,10 @@ $(document).ready(function () {
 
     function increaseQuestionCounter() {
         document.getElementById('question-counter').innerText = questionIndex + '/10';
+    }
+    // source: https://javascript.info/task/shuffle
+    function shuffle(array) {
+        array.sort(() => Math.random() - 0.5);
     }
 
 

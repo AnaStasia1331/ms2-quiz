@@ -18,27 +18,50 @@
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title>Quiz</title>
     <link rel="icon" href="assets/images/quiz-favicon.png" type="image/png">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("user_1vTJ1rTSIKfQPNUL54I2W");
+        })();
+    </script>
 </head>
 
 <body>
     <main class="container-fluid">
-        <h2 class="text-center" style="padding-top: 50px; padding-bottom: 15px;">Your number of correct answers is
-            <span id="score">0</span>
-        </h2>
-        <div id="results-display">
-            <img class="d-block mx-auto" src="" alt="description of gif" />
-            <h3></h3>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2 class="text-center header-padding">Your number of correct
+                        answers is
+                        <span id="score">0</span>
+                    </h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div id="results-display">
+                        <img class="d-block mx-auto" src="" alt="description of gif" />
+                        <h3 class="text-center header-padding"></h3>
+                    </div>
+                </div>
+            </div>
+            <form id="subscribe-form" novalidate>
+                <div class="form-row text-center">
+                    <div class="col">
+                        <input type="checkbox" id="subscribe" name="subscribe" value="subscribe">
+                        <label for="subscribe"> Subscribe to receive updates on new quizez</label><br>
+                    </div>
+                </div>
+                <div class="form-row text-center">
+                    <div class="col d-flex justify-content-center">
+                        <input type="email" class="form-control" placeholder="name@example.com" id="emailField"
+                            name="emailField" aria-describedby="emailField" disabled style="width: 30%;">
+                    </div>
+                </div>
+                <p id="error-msg" class="form-text text-center" style="color: red; font-weight: bold;"></p>
+                <button type="submit" class="btn btn-primary d-flex mx-auto">Finish</button>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="exampleInputEmail1">
-                <input type="checkbox" id="subscribe" name="subscribe" value="subscribe">
-                <label for="subscribe"> Subscribe to receive updates on new quizez</label><br>
-            </label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Enter email" disabled>
-            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-        </div>
-        <input class="btn btn-primary" type="submit" value="Finish">
     </main>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>

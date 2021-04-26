@@ -71,6 +71,10 @@ hr {
 /* ToDo: add media query for smaller screen size to display score and question counters on different lines */
 
 /* Generic */
+.header-padding {
+    padding-top: 50px;
+    padding-bottom: 25px;
+}
 
 .inline-right {
     display: inline;
