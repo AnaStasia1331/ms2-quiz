@@ -82,7 +82,7 @@ $(document).ready(function () {
     }
     // source: https://www.emailjs.com/docs/sdk/send/
     function sendMail(subscribeForm) {
-        return emailjs.send("service_na1mfol1", "template_mdnli8f", {
+        return emailjs.send("service_na1mfol", "template_mdnli8f", {
             "from_email": subscribeForm.emailField.value,
         })
     }
