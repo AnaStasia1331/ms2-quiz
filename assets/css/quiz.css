@@ -1,4 +1,32 @@
-/* Question card page: container */
+/* --------------------------------------General */
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.header-padding {
+    padding-top: 50px;
+    padding-bottom: 25px;
+}
+
+.inline-right {
+    display: inline;
+    float: right;
+}
+
+.inline-start {
+    display: inline;
+    float: inline-start;
+}
+
+.incorrectAnswer {
+    background-color: red;
+}
+
+.correctAnswer {
+    background-color: green;
+}
+
+/* ---------------------------------Question card page */
 
 .container-fluid {
 
@@ -7,8 +35,6 @@
     height: 100vh;
     margin-bottom: 0;
 }
-
-/* Question card page: card */
 
 #question-card {
     align-items: center;
@@ -24,8 +50,6 @@
 .card-header {
     background-color: #C5CED9;
 }
-
-/* Question card page: question section */
 
 #question-section {
     padding: 0;
@@ -60,8 +84,6 @@ hr {
     margin-top: 0;
 }
 
-/* Question card page: progress section */
-
 #progress-section {
     font-size: 20px;
     font-weight: bold;
@@ -70,26 +92,31 @@ hr {
 
 /* ToDo: add media query for smaller screen size to display score and question counters on different lines */
 
-/* Generic */
-.header-padding {
-    padding-top: 50px;
-    padding-bottom: 25px;
+/* ---------------------------------Finish quiz page */
+h2 {
+    color: blue;
+    font-weight: bold;
 }
 
-.inline-right {
-    display: inline;
-    float: right;
+.btn {
+    padding: 0.5rem 1.75rem;
+    font-size: 1.5rem;
+    line-height: normal;
+    border-radius: 1rem;
+    background-color: #2160ff;
+    box-shadow: 0 4px 0 0 #2f30e0;
+    border: none;
+    text-transform: uppercase;
+    color: white;
+    margin-top: 30px;
 }
 
-.inline-start {
-    display: inline;
-    float: inline-start;
+.btn:hover {
+    background-color: #217aff;
+    color: white;
+    text-decoration: none;
 }
 
-.incorrectAnswer {
-    background-color: red;
-}
-
-.correctAnswer {
-    background-color: green;
+.btn:focus {
+    box-shadow: none;
 }
