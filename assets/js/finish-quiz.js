@@ -67,7 +67,7 @@ $(document).ready(function () {
                 }, 2000);
             } else {
                 $.when(sendMail(form)).then(function () {
-                    form.action = "/index.html"
+                    form.action = "index.html"
                     form.submit();
                 }, function (error) {
                     console.log("FAILED", error);
@@ -75,7 +75,7 @@ $(document).ready(function () {
             }
 
         } else {
-            form.action = "/index.html"
+            form.action = "index.html"
             form.submit();
         }
 
