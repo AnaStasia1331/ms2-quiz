@@ -8,16 +8,19 @@ $(document).ready(function () {
     const MAX_QUESTIONS_NUM = 9;
     let questionIndex = 0;
 
+    // external API https://opentdb.com/ is used to retrieve questions and answers for the quiz
     function fetchTriviaDbQuestions() {
-
         $.when($.getJSON("https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple")).
         then(function (data) {
                 var triviaDbQuestions = data.results;
                 for (let triviaDbQuestion of triviaDbQuestions) {
+                    // the object 'question' is created 
                     var question = {};
+                    // the object includes the question, options (all suggested answers), answer (correct answer)
                     question.question = triviaDbQuestion.question;
                     question.options = [...triviaDbQuestion.incorrect_answers];
                     question.options.push(triviaDbQuestion.correct_answer);
+                    // answers are shuffled, so that correct answer will take different places in the list
                     shuffle(question.options);
                     question.answer = triviaDbQuestion.correct_answer;
                     questions.push(question);
@@ -25,6 +28,7 @@ $(document).ready(function () {
                 }
             },
             function (errorResponse) {
+                // the respective error page will be displayed to user on 404 status
                 if (errorResponse.status === 404) {
                     console.log(errorResponse);
                     $(".container").html(`
@@ -37,6 +41,7 @@ $(document).ready(function () {
                     </div>
                 </div>
             </div>`);
+                    // error page will be shown on any other error status
                 } else {
                     console.log(errorResponse);
                     $(".container").html(`
@@ -69,10 +74,11 @@ $(document).ready(function () {
             // redirect to the Finish quiz page with 'score' parameter and value
             return window.location.assign("finish-quiz.html?score=" + score);
         }
+        //load question in the Question Card 
         currentQuestion = questions[questionIndex];
         questionIndex++;
         question.innerHTML = currentQuestion.question;
-
+        //load suggested answers in the Question Card 
         for (let option of options) {
             const number = option.dataset["number"];
             option.innerHTML = currentQuestion.options[number];
@@ -80,51 +86,26 @@ $(document).ready(function () {
     }
 
     function addOptionEventListeners() {
-
         for (let optionLine of optionLines) {
-
             optionLine.addEventListener("click", function (event) {
                 var optionText = this.children[1];
                 var selectedAnswer = optionText.innerText;
 
                 if (checkAnswer(selectedAnswer)) {
                     increaseCorrectAnswersNum();
-                    // mark the correct answer green  
-                    optionLine.classList.add("correctAnswer");
-                    optionLine.classList.remove("hover-option");
-                    setTimeout(function () {
-                        optionLine.classList.remove("correctAnswer");
-                        optionLine.classList.add("hover-option");
-                        loadNewQuestion();
-                        increaseQuestionCounter();
-                    }, 700);
-
-
-
+                    displayAnswerIsCorrect(optionLine);
                 } else {
-                    // mark the correct answer red  
-                    optionLine.classList.add("incorrectAnswer");
-                    optionLine.classList.remove("hover-option");
-                    setTimeout(function () {
-                        optionLine.classList.remove("incorrectAnswer");
-                        optionLine.classList.add("hover-option");
-                        loadNewQuestion();
-                        increaseQuestionCounter();
-                    }, 700);
-
+                    displayAnswerIsIncorrect(optionLine);
                 }
             });
-
         }
     }
 
     function checkAnswer(selectedAnswer) {
-
         return selectedAnswer === currentQuestion.answer;
     }
-
+    // source: Code Institute, JavaScript Essentials module, JavaScript Walkthrough Project
     function increaseCorrectAnswersNum() {
-
         var oldNum = parseInt(document.getElementById('score').innerText);
         document.getElementById('score').innerText = ++oldNum;
     }
@@ -132,11 +113,37 @@ $(document).ready(function () {
     function increaseQuestionCounter() {
         document.getElementById('question-counter').innerText = questionIndex + '/10';
     }
+
     // source: https://javascript.info/task/shuffle
     function shuffle(array) {
         array.sort(() => Math.random() - 0.5);
     }
 
+    function displayAnswerIsCorrect(optionLine) {
+        // highlight the answer in green and remove the hover color
+        optionLine.classList.add("correctAnswer");
+        optionLine.classList.remove("hover-option");
+        // after 700ms remove the green marking and add the hover class back
+        setTimeout(function () {
+            optionLine.classList.remove("correctAnswer");
+            optionLine.classList.add("hover-option");
+            loadNewQuestion();
+            increaseQuestionCounter();
+        }, 700);
+    }
+
+    function displayAnswerIsIncorrect(optionLine) {
+        // highlight the answer in red and remove the hover color
+        optionLine.classList.add("incorrectAnswer");
+        optionLine.classList.remove("hover-option");
+        // after 700ms remove the red marking and add the hover class back
+        setTimeout(function () {
+            optionLine.classList.remove("incorrectAnswer");
+            optionLine.classList.add("hover-option");
+            loadNewQuestion();
+            increaseQuestionCounter();
+        }, 700);
+    }
 
     startQuiz();
 });
