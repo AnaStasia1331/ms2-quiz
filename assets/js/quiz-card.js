@@ -4,14 +4,15 @@ $(document).ready(function () {
     let options = document.getElementsByClassName('option-text');
     let optionLines = document.getElementsByClassName('list-group-item');
     let currentQuestion = {};
-    let questions = []
-    const MAX_QUESTIONS_NUM = 9;
+    let questions = [];
     let questionIndex = 0;
+    const MAX_QUESTIONS_NUM = 9;
+    const OPENTDB_URL = "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple";
 
     // external API https://opentdb.com/ is used to retrieve questions and answers for the quiz
     function fetchTriviaDbQuestions() {
         // first make sure the response from API is completed loaded, then continue the code execution on the response 
-        $.when($.getJSON("https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple")).
+        $.when($.getJSON(OPENTDB_URL)).
         then(function (data) {
                 var triviaDbQuestions = data.results;
                 for (let triviaDbQuestion of triviaDbQuestions) {
@@ -58,7 +59,7 @@ $(document).ready(function () {
             }).then(function () {
             loadNewQuestion();
         });
-    };
+    }
 
     function startQuiz() {
         fetchTriviaDbQuestions();
@@ -81,7 +82,7 @@ $(document).ready(function () {
         question.innerHTML = currentQuestion.question;
         //load suggested answers in the Question Card 
         for (let option of options) {
-            const number = option.dataset["number"];
+            const number = option.dataset.number;
             option.innerHTML = currentQuestion.options[number];
         }
     }
@@ -105,6 +106,7 @@ $(document).ready(function () {
     function checkAnswer(selectedAnswer) {
         return selectedAnswer === currentQuestion.answer;
     }
+
     // source: Code Institute, JavaScript Essentials module, JavaScript Walkthrough Project
     function increaseCorrectAnswersNum() {
         var oldNum = parseInt(document.getElementById('score').innerText);

@@ -60,24 +60,24 @@ $(document).ready(function () {
             if (atPosition < 1 || dotPosition - atPosition < 2) {
                 errorMsg.innerHTML = `Please enter valid email address`;
                 setTimeout(function () {
-                    errorMsg.innerHTML = ""
+                    errorMsg.innerHTML = "";
                 }, 2000);
             } else if (enteredValue == "") {
                 errorMsg.innerHTML = `Please provide your email address!`;
                 setTimeout(function () {
-                    errorMsg.innerHTML = ""
+                    errorMsg.innerHTML = "";
                 }, 2000);
             } else {
                 // to avoid the asynchronous behaviour (emails may not be sent out), wait for sendMail(form) to complete and then perform the form submit and redirect to the Home page or log the failure  
                 $.when(sendMail(form)).then(function () {
-                    form.action = "index.html"
+                    form.action = "index.html";
                     form.submit();
                 }, function (error) {
                     console.log("FAILED", error);
                 });
             }
         } else {
-            form.action = "index.html"
+            form.action = "index.html";
             form.submit();
         }
 
@@ -86,7 +86,7 @@ $(document).ready(function () {
     function sendMail(subscribeForm) {
         return emailjs.send("service_na1mfol", "template_mdnli8f", {
             "from_email": subscribeForm.emailField.value,
-        })
+        });
     }
 
 });
