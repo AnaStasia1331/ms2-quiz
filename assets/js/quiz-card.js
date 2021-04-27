@@ -67,7 +67,7 @@ $(document).ready(function () {
             // source: https://lage.us/Javascript-Pass-Variables-to-Another-Page.html
             sessionStorage.setItem("score", score);
             // redirect to the Finish quiz page with 'score' parameter and value
-            return window.location.assign("/finish-quiz.html?score=" + score);
+            return window.location.assign("finish-quiz.html?score=" + score);
         }
         currentQuestion = questions[questionIndex];
         questionIndex++;
