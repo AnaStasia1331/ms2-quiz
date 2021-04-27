@@ -3,9 +3,9 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
-.header-padding {
-    padding-top: 50px;
-    padding-bottom: 25px;
+.header-margin {
+    margin-top: 50px;
+    margin-bottom: 25px;
 }
 
 .inline-right {
@@ -42,7 +42,7 @@ body {
 }
 
 .card {
-    width: 45rem;
+    width: 50rem;
     border-width: 2px;
     border-color: #596B7E;
 }
@@ -67,8 +67,7 @@ body {
 .option-numbering {
     display: inline;
     float: inline-start;
-    font-weight: bold;
-    border-radius: 50%;
+    border-radius: 10px;
     background-color: #FDC167;
     margin-right: 5px;
     padding: 10px;
@@ -86,7 +85,6 @@ hr {
 
 #progress-section {
     font-size: 20px;
-    font-weight: bold;
     color: mediumblue;
 }
 
@@ -95,11 +93,15 @@ hr {
 /* ---------------------------------Finish quiz page */
 h2 {
     color: blue;
-    font-weight: bold;
+    padding: 15px;
+}
+
+#emailField {
+    width: 30%;
 }
 
 .btn {
-    padding: 0.5rem 1.75rem;
+    padding: 0.6rem 1.75rem;
     font-size: 1.5rem;
     line-height: normal;
     border-radius: 1rem;

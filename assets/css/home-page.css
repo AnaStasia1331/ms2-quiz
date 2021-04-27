@@ -1,4 +1,8 @@
-/* Home page*/
+/* --------------------------------------Home page */
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
 .container-fluid {
     background: url('/assets/images//quiz-bg-image.jpg') no-repeat 0% 85%;
     background-size: cover;
@@ -24,8 +28,6 @@
     box-shadow: 0 4px 0 0 #00a06a;
     border: none;
     text-transform: uppercase;
-    font-family: 'Quicksand', sans-serif;
-    opacity: 0.95;
     color: white;
 }
 

@@ -13,21 +13,21 @@ $(document).ready(function () {
         $("#results-display").html(`
         <img class="d-block mx-auto" src="https://media.giphy.com/media/g9582DNuQppxC/giphy.gif"
         alt="super winner gif" />
-        <h3 class="text-center header-padding">Congratulations and BRAVO! You are a walking encyclopaedia!</h3>
+        <h3 class="text-center header-margin">Congratulations and BRAVO! You are a walking encyclopaedia!</h3>
         `);
 
     } else if (score > 3) {
         $("#results-display").html(`
         <img class="d-block mx-auto" src="https://media.giphy.com/media/mgqefqwSbToPe/giphy.gif"
         alt="winner gif" />
-        <h3 class="text-center header-padding">Well done! You are a smart cookie!</h3>
+        <h3 class="text-center header-margin">Well done! You are a smart cookie!</h3>
         `);
 
     } else {
         $("#results-display").html(`
         <img class="d-block mx-auto" src="https://media.giphy.com/media/IoP0PvbbSWGAM/giphy.gif"
         alt="keep learning gif" />
-        <h3 class="text-center header-padding">As Henry Ford once said, "Failure is only the opportunity to begin again more intelligently."</h3>
+        <h3 class="text-center header-margin">As Henry Ford once said, "Failure is only the opportunity to begin again more intelligently."</h3>
         `);
     }
 
