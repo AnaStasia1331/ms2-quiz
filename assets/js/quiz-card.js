@@ -20,6 +20,7 @@ $(document).ready(function () {
                     var question = {};
                     // the object includes the question, options (all suggested answers), answer (correct answer)
                     question.question = triviaDbQuestion.question;
+                    // used the spread operator to make a copy of the incorrect_answers array; source: https://www.educative.io/edpresso/what-is-the-spread-operator-in-javascript
                     question.options = [...triviaDbQuestion.incorrect_answers];
                     question.options.push(triviaDbQuestion.correct_answer);
                     // answers are shuffled, so that correct answer will take different places in the list
