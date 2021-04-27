@@ -10,6 +10,7 @@ $(document).ready(function () {
 
     // external API https://opentdb.com/ is used to retrieve questions and answers for the quiz
     function fetchTriviaDbQuestions() {
+        // first make sure the response from API is completed loaded, then continue the code execution on the response 
         $.when($.getJSON("https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple")).
         then(function (data) {
                 var triviaDbQuestions = data.results;
@@ -28,9 +29,9 @@ $(document).ready(function () {
                 }
             },
             function (errorResponse) {
-                // the respective error page will be displayed to user on 404 status
                 if (errorResponse.status === 404) {
                     console.log(errorResponse);
+                    // the respective error page will be displayed to user on 404 status
                     $(".container").html(`
                     <div class="row">
                 <div class="col-md-12">
@@ -41,9 +42,9 @@ $(document).ready(function () {
                     </div>
                 </div>
             </div>`);
-                    // error page will be shown on any other error status
                 } else {
                     console.log(errorResponse);
+                    // error page will be shown on any other error status
                     $(".container").html(`
                     <div class="row">
                 <div class="col-md-12">
