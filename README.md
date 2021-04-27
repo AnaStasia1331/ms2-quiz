@@ -9,6 +9,8 @@
 # Quiz website 
 Quiz website was designed as an interactive front-end website and uses mainly HTML, CSS and JavaScript technologies. This project demonstrates my skills obtained while studying the Interactive Frontend Development modules of the Code Institute’s Full Stack Developer course.
 
+(ToAdd screenshots after the site is completely responsive)
+
 # UX
 
 ## Who is this website for?
@@ -21,7 +23,7 @@ Get various questions to answer, know if their answer is correct/incorrect and h
 Random multi-choice questions are displayed to a quiz player. S/he is able to click on one of the answers and immediately get the feedback whether it was correct or not. At the end of the quiz the player receives total score and corresponding message depending on the score. Implemented user requirements are added below in the User Stories section.
 
 ## Wireframes
-
+The [wireframes](https://github.com/AnaStasia1331/ms2-quiz/tree/master/assets/images/wireframes) were created using Balsamiq tool.
 
 ## User Stories 
 As a quiz player, I want to:
@@ -40,6 +42,10 @@ As a quiz player, I want to:
 As a quiz owner, I want to:
 1. be notified when a quiz player wishes to subscribe to quiz website updates.
 
+## Nice-to-have features 
+- Add the Help icon located on the Home page. It should expand on click and provide the instructions for the quiz.
+- Improve validation by not accepting the loading of finish-quiz.html without the 'score' url parameter.
+
 # Technologies Used
 
 The below list includes all of the languages, frameworks, tools, learning platforms and stock image websites I have used to construct this project. 
@@ -49,6 +55,9 @@ The below list includes all of the languages, frameworks, tools, learning platfo
 ## Test environments
 ## Requirements testing 
 ## Known issues:
+- if a correct answer contains special charachter, it's validated as incorrect.
+
+## Code Validation:
 
 # Deployment
 
