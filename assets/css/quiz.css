@@ -156,7 +156,7 @@ h2 {
 }
 
 
-/* extra large devices (2560px and up) */
+/* extra extra large devices (2560px and up) */
 @media only screen and (min-width: 2560px) {
     h2 {
         font-size: 2.25rem;

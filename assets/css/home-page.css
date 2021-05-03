@@ -4,8 +4,7 @@ body {
 }
 
 .container-fluid {
-    background: url('../images/quiz-bg-image.jpg') no-repeat 0% 85%;
-    background-size: cover;
+
     height: 100vh;
     width: 100vw;
     opacity: 0.95;
@@ -20,8 +19,6 @@ body {
 }
 
 .btn {
-    padding: 2rem 4.5rem;
-    font-size: 2.5rem;
     line-height: normal;
     border-radius: 1rem;
     background-color: #00c985;
@@ -41,4 +38,44 @@ body {
     box-shadow: none;
 }
 
-/* ToDo: add media queries for the button */
+/* extra small and small devices */
+@media only screen and (min-width: 0px) {
+    .btn {
+        font-size: 1.5rem;
+        padding: 1.5rem 3rem;
+    }
+
+    .container-fluid {
+        background: url('../images/quiz-bg-image.jpg') no-repeat 50%;
+        background-size: cover;
+    }
+}
+
+/* medium and large devices*/
+@media only screen and (min-width: 768px) {
+    .btn {
+        padding: 2rem 4.5rem;
+        font-size: 2.5rem;
+    }
+}
+
+/* extra large devices */
+@media only screen and (min-width: 1200px) {
+    .container-fluid {
+        background: url('../images/quiz-bg-image.jpg') no-repeat 0% 95%;
+        background-size: cover;
+    }
+}
+
+/* extra extra large devices */
+@media only screen and (min-width: 2560px) {
+    .btn {
+        padding: 2.5rem 5rem;
+        font-size: 3rem;
+    }
+
+    .container-fluid {
+        background: url('../images/quiz-bg-image.jpg') no-repeat 0% 80%;
+        background-size: cover;
+    }
+}
