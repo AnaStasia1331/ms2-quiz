@@ -14,10 +14,10 @@ $(document).ready(function () {
         // first make sure the response from API is completed loaded, then continue the code execution on the response 
         $.when($.getJSON(OPENTDB_URL)).
         then(function (data) {
-                var triviaDbQuestions = data.results;
+                let triviaDbQuestions = data.results;
                 for (let triviaDbQuestion of triviaDbQuestions) {
                     // the object 'question' is created 
-                    var question = {};
+                    let question = {};
                     // the object includes the question, options (all suggested answers), answer (correct answer)
                     question.question = triviaDbQuestion.question;
                     // used the spread operator to make a copy of the incorrect_answers array; source: https://www.educative.io/edpresso/what-is-the-spread-operator-in-javascript
@@ -70,9 +70,9 @@ $(document).ready(function () {
     function loadNewQuestion() {
         if (questionIndex === MAX_QUESTIONS_NUM) {
             // get the final number of correct answers 
-            var score = document.getElementById('score').innerText;
+            let score = document.getElementById('score').innerText;
             // create the sessionStorage 'score' variable to pass it to the next page via url 
-            // source: https://lage.us/Javascript-Pass-Variables-to-Another-Page.html
+            // source: https://lage.us/Javascript-Pass-variables-to-Another-Page.html
             sessionStorage.setItem("score", score);
             // redirect to the Finish quiz page with 'score' parameter and value
             return window.location.assign("finish-quiz.html?score=" + score);
@@ -91,8 +91,8 @@ $(document).ready(function () {
     function addOptionEventListeners() {
         for (let optionLine of optionLines) {
             optionLine.addEventListener("click", function (event) {
-                var optionText = this.children[1];
-                var selectedAnswer = optionText.innerText;
+                let optionText = this.children[1];
+                let selectedAnswer = optionText.innerText;
 
                 if (checkAnswer(selectedAnswer)) {
                     increaseCorrectAnswersNum();
@@ -110,7 +110,7 @@ $(document).ready(function () {
 
     // source: Code Institute, JavaScript Essentials module, JavaScript Walkthrough Project
     function increaseCorrectAnswersNum() {
-        var oldNum = parseInt(document.getElementById('score').innerText);
+        let oldNum = parseInt(document.getElementById('score').innerText);
         document.getElementById('score').innerText = ++oldNum;
     }
 

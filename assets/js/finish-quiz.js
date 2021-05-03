@@ -48,11 +48,11 @@ $(document).ready(function () {
         event.preventDefault();
 
         if (checkbox.is(":checked")) {
-            var enteredValue = document.getElementById("emailField").value;
+            let enteredValue = document.getElementById("emailField").value;
 
             // source: implementation similar to https://www.javatpoint.com/javascript-form-validation JavaScript email validation
-            var atPosition = enteredValue.indexOf("@");
-            var dotPosition = enteredValue.indexOf(".");
+            let atPosition = enteredValue.indexOf("@");
+            let dotPosition = enteredValue.indexOf(".");
 
             // Email id must contain the @ and . character
             // There must be at least one character before and after the @.
