@@ -55,7 +55,6 @@ The below list includes all of the languages, frameworks, tools, learning platfo
 ## Test environments
 ## Requirements testing 
 ## Known issues:
-- if a correct answer contains special charachter, it's validated as incorrect.
 
 ## Code Validation:
 

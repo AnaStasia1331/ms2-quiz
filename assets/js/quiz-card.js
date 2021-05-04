@@ -11,7 +11,7 @@ $(document).ready(function () {
 
     // external API https://opentdb.com/ is used to retrieve questions and answers for the quiz
     function fetchTriviaDbQuestions() {
-        // first make sure the response from API is completed loaded, then continue the code execution on the response 
+        // first make sure the response from API is completely loaded, then continue the code execution on the response 
         $.when($.getJSON(OPENTDB_URL)).
         then(function (data) {
                 let triviaDbQuestions = data.results;
@@ -25,7 +25,8 @@ $(document).ready(function () {
                     question.options.push(triviaDbQuestion.correct_answer);
                     // answers are shuffled, so that correct answer will take different places in the list
                     shuffle(question.options);
-                    question.answer = triviaDbQuestion.correct_answer;
+                    // get the index of the correct answer for later comparison with the selected answer index
+                    question.answerIndex = question.options.indexOf(triviaDbQuestion.correct_answer);
                     questions.push(question);
 
                 }
@@ -83,6 +84,7 @@ $(document).ready(function () {
         question.innerHTML = currentQuestion.question;
         //load suggested answers in the Question Card 
         for (let option of options) {
+            // get the value of the data-number attribute from html that will be also used as an index in currentQuestion.options array
             const number = option.dataset.number;
             option.innerHTML = currentQuestion.options[number];
         }
@@ -92,9 +94,10 @@ $(document).ready(function () {
         for (let optionLine of optionLines) {
             optionLine.addEventListener("click", function (event) {
                 let optionText = this.children[1];
-                let selectedAnswer = optionText.innerText;
+                // get the value of the data-number attribute for the selected option and convert it from string into number 
+                let selectedAnswerIndex = parseInt(optionText.dataset.number);
 
-                if (checkAnswer(selectedAnswer)) {
+                if (checkAnswer(selectedAnswerIndex)) {
                     increaseCorrectAnswersNum();
                     displayAnswerIsCorrect(optionLine);
                 } else {
@@ -104,8 +107,8 @@ $(document).ready(function () {
         }
     }
 
-    function checkAnswer(selectedAnswer) {
-        return selectedAnswer === currentQuestion.answer;
+    function checkAnswer(selectedAnswerIndex) {
+        return selectedAnswerIndex === currentQuestion.answerIndex;
     }
 
     // source: Code Institute, JavaScript Essentials module, JavaScript Walkthrough Project
