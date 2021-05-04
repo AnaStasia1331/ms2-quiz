@@ -48,9 +48,12 @@
             <form id="subscribe-form" novalidate>
                 <div class="form-row text-center">
                     <div class="col">
-                        <input type="checkbox" id="subscribe" name="subscribe" value="subscribe">
-                        <label for="subscribe"> Subscribe to receive updates on new
-                            quizzes</label><br>
+                        <!-- To show the checkbox on the same line with the label this solution was used https://www.w3schools.com/bootstrap/bootstrap_forms_inputs.asp See 'Bootstrap Checkboxes' section -->
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="subscribe" value="subscribe"> Subscribe to updates
+                                on new quizzes</label>
+                            <br>
+                        </div>
                     </div>
                 </div>
                 <div class="form-row text-center">
