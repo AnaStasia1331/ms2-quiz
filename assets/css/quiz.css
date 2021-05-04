@@ -4,16 +4,6 @@ body {
     background-color: #C3F2FD;
 }
 
-.inline-right {
-    display: inline;
-    float: right;
-}
-
-.inline-start {
-    display: inline;
-    float: inline-start;
-}
-
 .incorrectAnswer {
     background-color: red;
 }
@@ -23,14 +13,12 @@ body {
 }
 
 /* ---------------------------------Question card page */
-
 #question-card {
     align-items: center;
     height: 100vh;
 }
 
 .card {
-    width: 50rem;
     border-width: 2px;
     border-color: #596B7E;
 }
@@ -41,10 +29,6 @@ body {
 
 #question-section {
     padding: 0;
-}
-
-.list-group-item {
-    font-size: 22px;
 }
 
 .hover-option:hover {
@@ -72,11 +56,80 @@ hr {
 }
 
 #progress-section {
-    font-size: 20px;
     color: mediumblue;
 }
 
-/* ToDo: add media query for smaller screen size to display score and question counters on different lines */
+#correct-ans-txt {
+    display: inline;
+    float: left;
+}
+
+#qn-counter-txt {
+    display: inline;
+    float: right;
+}
+
+/* -----------------------------Media queries for Question card page */
+/* extra small devices: mobile S and M.
+Only for this specific size the Correct answers counter and Questions counter will display on 2 separate lines with float: left */
+@media only screen and (max-width: 375px) {
+    #qn-counter-txt {
+        display: inline;
+        float: left;
+    }
+}
+
+/* extra small and small devices */
+@media only screen and (min-width: 0px) {
+    .list-group-item {
+        font-size: 1.25rem;
+    }
+
+    #progress-section {
+        font-size: 1.125rem;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
+
+/* medium and large devices*/
+@media only screen and (min-width: 768px) {
+    .list-group-item {
+        font-size: 1.375rem;
+    }
+
+    #progress-section {
+        font-size: 1.25rem;
+    }
+
+    .card {
+        width: 80%;
+    }
+}
+
+/* extra large devices */
+@media only screen and (min-width: 1200px) {
+    .card {
+        width: 70%;
+    }
+}
+
+/* extra extra large devices */
+@media only screen and (min-width: 2560px) {
+    .list-group-item {
+        font-size: 1.625rem;
+    }
+
+    #progress-section {
+        font-size: 1.625rem;
+    }
+
+    .card {
+        width: 85%;
+    }
+}
 
 /* ---------------------------------Finish quiz page */
 h2 {
@@ -106,6 +159,7 @@ h2 {
     box-shadow: none;
 }
 
+/* ---------------------------------Media queries for Finish quiz page */
 /* extra small and small devices */
 @media only screen and (min-width: 0px) {
     h2 {
@@ -128,7 +182,6 @@ h2 {
     .btn {
         font-size: 1rem;
     }
-
 }
 
 /* medium, large and extra large devices (up to 2560px) */
@@ -154,7 +207,6 @@ h2 {
         font-size: 1.25rem;
     }
 }
-
 
 /* extra extra large devices (2560px and up) */
 @media only screen and (min-width: 2560px) {

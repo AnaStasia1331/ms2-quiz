@@ -38,6 +38,7 @@ body {
     box-shadow: none;
 }
 
+/* --------------------------------------Media queries for Home page */
 /* extra small and small devices */
 @media only screen and (min-width: 0px) {
     .btn {
