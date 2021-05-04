@@ -9,7 +9,7 @@
 # Quiz website 
 Quiz website was designed as an interactive front-end website and uses mainly HTML, CSS and JavaScript technologies. This project demonstrates my skills obtained while studying the Interactive Frontend Development modules of the Code Institute’s Full Stack Developer course.
 
-(ToAdd screenshots after the site is completely responsive)
+![screen shots on various devices](assets/images/readme-images/am-i-responsive.png)
 
 # UX
 
