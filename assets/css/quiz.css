@@ -31,9 +31,11 @@ body {
     padding: 0;
 }
 
-.hover-option:hover {
-    background-color: #a1edff;
-
+/* Hover options in the card. Source: https://css-tricks.com/solving-sticky-hover-states-with-media-hover-hover/ */
+@media (hover: hover) {
+    .list-group-item:hover {
+        background-color: #a1edff;
+    }
 }
 
 .option-numbering {
