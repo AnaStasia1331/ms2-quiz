@@ -33,7 +33,6 @@ $(document).ready(function () {
             },
             function (errorResponse) {
                 if (errorResponse.status === 404) {
-                    console.log(errorResponse);
                     // the respective error page will be displayed to user on 404 status
                     $(".container").html(`
                     <div class="row">
@@ -46,7 +45,6 @@ $(document).ready(function () {
                 </div>
             </div>`);
                 } else {
-                    console.log(errorResponse);
                     // error page will be shown on any other error status
                     $(".container").html(`
                     <div class="row">

@@ -4,12 +4,14 @@ body {
     background-color: #C3F2FD;
 }
 
+/* Incorrect answer will be highlighted in red even when the answer is hovered at that moment */
 .incorrectAnswer {
-    background-color: red;
+    background-color: red !important;
 }
 
+/* Correct answer will be highlighted in green even when the answer is hovered at that moment */
 .correctAnswer {
-    background-color: green;
+    background-color: green !important;
 }
 
 /* ---------------------------------Question card page */
@@ -29,6 +31,10 @@ body {
 
 #question-section {
     padding: 0;
+}
+
+.list-group-item {
+    cursor: pointer;
 }
 
 /* Hover options in the card. Source: https://css-tricks.com/solving-sticky-hover-states-with-media-hover-hover/ */

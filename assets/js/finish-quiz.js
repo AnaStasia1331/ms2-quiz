@@ -73,7 +73,7 @@ $(document).ready(function () {
                     form.action = "index.html";
                     form.submit();
                 }, function (error) {
-                    console.log("FAILED", error);
+                    alert(error.text);
                 });
             }
         } else {
