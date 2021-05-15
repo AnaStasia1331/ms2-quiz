@@ -1,5 +1,8 @@
 $(document).ready(function () {
-
+    let questionCardPage = document.getElementById('question-card-page');
+    let questionCardContainer = document.getElementById('question-card-container');
+    let questionCard = document.getElementById('question-card');
+    let loader = document.getElementById('loader');
     let question = document.getElementById('question-text');
     let options = document.getElementsByClassName('option-text');
     let optionLines = document.getElementsByClassName('list-group-item');
@@ -58,6 +61,8 @@ $(document).ready(function () {
                 }
             }).then(function () {
             loadNewQuestion();
+            // show loader until question is fully loaded
+            showLoader();
         });
     }
 
@@ -126,11 +131,11 @@ $(document).ready(function () {
 
     function displayAnswerIsCorrect(optionLine) {
         // highlight the answer in green and remove the hover color
-        optionLine.classList.add("correctAnswer");
+        optionLine.classList.add("correct-answer");
         optionLine.classList.remove("hover-option");
         // after 700ms remove the green marking and add the hover class back
         setTimeout(function () {
-            optionLine.classList.remove("correctAnswer");
+            optionLine.classList.remove("correct-answer");
             optionLine.classList.add("hover-option");
             loadNewQuestion();
             increaseQuestionCounter();
@@ -139,15 +144,25 @@ $(document).ready(function () {
 
     function displayAnswerIsIncorrect(optionLine) {
         // highlight the answer in red and remove the hover color
-        optionLine.classList.add("incorrectAnswer");
+        optionLine.classList.add("incorrect-answer");
         optionLine.classList.remove("hover-option");
         // after 700ms remove the red marking and add the hover class back
         setTimeout(function () {
-            optionLine.classList.remove("incorrectAnswer");
+            optionLine.classList.remove("incorrect-answer");
             optionLine.classList.add("hover-option");
             loadNewQuestion();
             increaseQuestionCounter();
         }, 700);
+    }
+
+    function showLoader() {
+        // classes .full-screen and .content-centered were used to center the loader and must be removed when the question card is displayed   
+        questionCardPage.classList.remove('full-screen');
+        questionCardContainer.classList.remove('content-centered');
+        // removing .d-none will display the question card
+        questionCard.classList.remove('d-none');
+        // adding .d-none will hide the loader
+        loader.classList.add('d-none');
     }
 
     startQuiz();
