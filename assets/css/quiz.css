@@ -5,13 +5,13 @@ body {
 }
 
 /* This class is required only to center the loader icon and will be removed when question card is loaded */
-.full-screen {
+.loader-full-screen {
     height: 100vh;
     width: 100vw;
 }
 
 /* This class is required only to center the loader icon and will be removed when question card is loaded */
-.content-centered {
+.loader-centered {
     display: flex;
     justify-content: center;
     align-items: center;

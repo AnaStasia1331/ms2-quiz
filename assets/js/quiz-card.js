@@ -1,15 +1,16 @@
 $(document).ready(function () {
-    let questionCardPage = document.getElementById('question-card-page');
-    let questionCardContainer = document.getElementById('question-card-container');
-    let questionCard = document.getElementById('question-card');
-    let loader = document.getElementById('loader');
-    let question = document.getElementById('question-text');
-    let options = document.getElementsByClassName('option-text');
-    let optionLines = document.getElementsByClassName('list-group-item');
+    const questionCardPage = document.getElementById('question-card-page');
+    const questionCardContainer = document.getElementById('question-card-container');
+    const questionCard = document.getElementById('question-card');
+    const loader = document.getElementById('loader');
+    const question = document.getElementById('question-text');
+    const options = document.getElementsByClassName('option-text');
+    const optionLines = document.getElementsByClassName('list-group-item');
     let currentQuestion = {};
     let questions = [];
     let questionIndex = 0;
     const MAX_QUESTIONS_NUM = 9;
+    let score = 0;
     const OPENTDB_URL = "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple";
 
     // external API https://opentdb.com/ is used to retrieve questions and answers for the quiz
@@ -17,8 +18,8 @@ $(document).ready(function () {
         // first make sure the response from API is completely loaded, then continue the code execution on the response 
         $.when($.getJSON(OPENTDB_URL)).
         then(function (data) {
-                let triviaDbQuestions = data.results;
-                for (let triviaDbQuestion of triviaDbQuestions) {
+                const triviaDbQuestions = data.results;
+                for (const triviaDbQuestion of triviaDbQuestions) {
                     // the object 'question' is created 
                     let question = {};
                     // the object includes the question, options (all suggested answers), answer (correct answer)
@@ -62,7 +63,7 @@ $(document).ready(function () {
             }).then(function () {
             loadNewQuestion();
             // show loader until question is fully loaded
-            showLoader();
+            hideLoader();
         });
     }
 
@@ -73,32 +74,31 @@ $(document).ready(function () {
 
     function loadNewQuestion() {
         if (questionIndex === MAX_QUESTIONS_NUM) {
-            // get the final number of correct answers 
-            let score = document.getElementById('score').innerText;
-            // create the sessionStorage 'score' variable to pass it to the next page via url 
+            // create the sessionStorage 'score' variable to pass it to the next page 
             // source: https://lage.us/Javascript-Pass-variables-to-Another-Page.html
             sessionStorage.setItem("score", score);
-            // redirect to the Finish quiz page with 'score' parameter and value
-            return window.location.assign("finish-quiz.html?score=" + score);
-        }
-        //load question in the Question Card 
-        currentQuestion = questions[questionIndex];
-        questionIndex++;
-        question.innerHTML = currentQuestion.question;
-        //load suggested answers in the Question Card 
-        for (let option of options) {
-            // get the value of the data-number attribute from html that will be also used as an index in currentQuestion.options array
-            const number = option.dataset.number;
-            option.innerHTML = currentQuestion.options[number];
+            // redirect to the Finish quiz page
+            return window.location.assign("finish-quiz.html");
+        } else {
+            //load question in the Question Card 
+            currentQuestion = questions[questionIndex];
+            questionIndex++;
+            question.innerHTML = currentQuestion.question;
+            //load suggested answers in the Question Card 
+            for (const option of options) {
+                // get the value of the data-number attribute from html that will be also used as an index in currentQuestion.options array
+                const number = option.dataset.number;
+                option.innerHTML = currentQuestion.options[number];
+            }
         }
     }
 
     function addOptionEventListeners() {
-        for (let optionLine of optionLines) {
+        for (const optionLine of optionLines) {
             optionLine.addEventListener("click", function (event) {
-                let optionText = this.children[1];
+                const optionText = this.children[1];
                 // get the value of the data-number attribute for the selected option and convert it from string into number 
-                let selectedAnswerIndex = parseInt(optionText.dataset.number);
+                const selectedAnswerIndex = parseInt(optionText.dataset.number);
 
                 if (checkAnswer(selectedAnswerIndex)) {
                     increaseCorrectAnswersNum();
@@ -114,10 +114,8 @@ $(document).ready(function () {
         return selectedAnswerIndex === currentQuestion.answerIndex;
     }
 
-    // source: Code Institute, JavaScript Essentials module, JavaScript Walkthrough Project
     function increaseCorrectAnswersNum() {
-        let oldNum = parseInt(document.getElementById('score').innerText);
-        document.getElementById('score').innerText = ++oldNum;
+        document.getElementById('score').innerText = ++score;
     }
 
     function increaseQuestionCounter() {
@@ -155,10 +153,10 @@ $(document).ready(function () {
         }, 700);
     }
 
-    function showLoader() {
-        // classes .full-screen and .content-centered were used to center the loader and must be removed when the question card is displayed   
-        questionCardPage.classList.remove('full-screen');
-        questionCardContainer.classList.remove('content-centered');
+    function hideLoader() {
+        // classes .loader-full-screen and .loader-centered were used to center the loader and must be removed when the question card is displayed   
+        questionCardPage.classList.remove('loader-full-screen');
+        questionCardContainer.classList.remove('loader-centered');
         // removing .d-none will display the question card
         questionCard.classList.remove('d-none');
         // adding .d-none will hide the loader

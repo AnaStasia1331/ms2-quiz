@@ -1,11 +1,11 @@
 $(document).ready(function () {
-    let emailField = $('input[type="email"]');
-    let checkbox = $('#subscribe');
-    let form = document.getElementById("subscribe-form");
-    let errorMsg = document.getElementById("error-msg");
+    const emailField = $('input[type="email"]');
+    const checkbox = $('#subscribe');
+    const form = document.getElementById("subscribe-form");
+    const errorMsg = document.getElementById("error-msg");
 
     // get the 'score' value from the url 
-    let score = sessionStorage.getItem('score');
+    const score = sessionStorage.getItem('score');
     // and write it into html span with 'score' id
     $("#score").text(score);
 
@@ -48,22 +48,22 @@ $(document).ready(function () {
         event.preventDefault();
 
         if (checkbox.is(":checked")) {
-            let enteredValue = document.getElementById("emailField").value;
+            const enteredValue = document.getElementById("emailField").value;
 
             // source: implementation similar to https://www.javatpoint.com/javascript-form-validation JavaScript email validation
-            let atPosition = enteredValue.indexOf("@");
-            let dotPosition = enteredValue.indexOf(".");
+            const atPosition = enteredValue.indexOf("@");
+            const dotPosition = enteredValue.lastIndexOf(".");
 
             // Email id must contain the @ and . character
             // There must be at least one character before and after the @.
             // And the last dot must at least be one character after the @.
             if (enteredValue == "") {
-                errorMsg.innerHTML = `Please provide your email address.`;
+                errorMsg.innerHTML = "Please provide your email address.";
                 setTimeout(function () {
                     errorMsg.innerHTML = "";
                 }, 2000);
             } else if (atPosition < 1 || dotPosition - atPosition < 2) {
-                errorMsg.innerHTML = `Please enter valid email address.`;
+                errorMsg.innerHTML = "Please enter valid email address.";
                 setTimeout(function () {
                     errorMsg.innerHTML = "";
                 }, 2000);
