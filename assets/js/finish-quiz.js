@@ -57,13 +57,13 @@ $(document).ready(function () {
             // Email id must contain the @ and . character
             // There must be at least one character before and after the @.
             // And the last dot must at least be one character after the @.
-            if (atPosition < 1 || dotPosition - atPosition < 2) {
-                errorMsg.innerHTML = `Please enter valid email address`;
+            if (enteredValue == "") {
+                errorMsg.innerHTML = `Please provide your email address.`;
                 setTimeout(function () {
                     errorMsg.innerHTML = "";
                 }, 2000);
-            } else if (enteredValue == "") {
-                errorMsg.innerHTML = `Please provide your email address!`;
+            } else if (atPosition < 1 || dotPosition - atPosition < 2) {
+                errorMsg.innerHTML = `Please enter valid email address.`;
                 setTimeout(function () {
                     errorMsg.innerHTML = "";
                 }, 2000);
