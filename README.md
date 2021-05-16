@@ -112,7 +112,7 @@ Google Chrome dev tool was used during development to check the responsiveness o
 ## Testing User Stories from User Experience (UX) Section
 
 1. ***As a quiz player, I want to navigate throughout the website with intuitive web design.***
-    1. When a user enters the url of the website, s/he sees [the background image that contains the test 'Quiz' with one big Start button](https://github.com/AnaStasia1331/ms2-quiz/tree/master/assets/images/test-evidence/Home-page.png) placed in the middle of the screen. Hovering the button changes its css showing that it's clickable.
+    1. When a user enters the url of the website, s/he sees [the background image that contains the test 'Quiz' with one big Start button](https://github.com/AnaStasia1331/ms2-quiz/tree/master/assets/images/test-evidence/home-page.png) placed in the middle of the screen. Hovering the button changes its css showing that it's clickable.
     2. When the user visits the Question card page and hovers one of the answers, the cursor and light blue highlighting appears indicating that this option can be selected. 
     3. Selecting an answer will result in red or green highlighing of that answer. In such way the user knows if her/his answer was correct or wrong. Additionally, the Correct answers counter will keep track of the total number of correct answers guessed by the user.
     4. The Question counter on the Question card will keep the user informed of how many questions left to answer.
@@ -121,7 +121,7 @@ Google Chrome dev tool was used during development to check the responsiveness o
 2.  ***As a quiz player, I want to be able to start the quiz from the Home page.***
     1. The user can click the Start button from the Home page and s/he will be redirected to the Question card with the first question.
 3. ***As a quiz player, I want to see different quiz questions displayed with multiple options to choose from.***
-    1. The Question card page displays [the card with a question and possible answers](https://github.com/AnaStasia1331/ms2-quiz/tree/master/assets/images/test-evidence/Question-card.png) to select. There are 10 questions in total. It's been tested that none of the questions are repeating and the answers are re-shuffled so that it won't be so easy for the user to guess correct one.
+    1. The Question card page displays [the card with a question and possible answers](https://github.com/AnaStasia1331/ms2-quiz/tree/master/assets/images/test-evidence/question-card.png) to select. There are 10 questions in total. It's been tested that none of the questions are repeating and the answers are re-shuffled so that it won't be so easy for the user to guess correct one.
 4. ***As a quiz player, I want to see my total score of correct answers while I'm playing the quiz.***
     1. In the Question card the user can see the Correct answers counter which is initially set to 0. 
     2. As soon as a correct answer is selected, the counter increases by 1.
@@ -132,7 +132,7 @@ Google Chrome dev tool was used during development to check the responsiveness o
     1. When the user clicks on correct answer, it's highlighted in green. It's been tested by looking up the correct answer for a specific question in the json response received from [Open Trivia DB API](https://opentdb.com/) and comparing with the selected answer.
     2. When the user clicks on incorrect answer, it's highlighted in red. 
 7. ***As a quiz player, I want to go to the final page where it's stated how well I did.***
-    1. After going through all questions, the user is automatically redirected to the [Finish quiz page](https://github.com/AnaStasia1331/ms2-quiz/tree/master/assets/images/test-evidence/Finish-quiz-page.png).
+    1. After going through all questions, the user is automatically redirected to the [Finish quiz page](https://github.com/AnaStasia1331/ms2-quiz/tree/master/assets/images/test-evidence/finish-quiz-page.png).
     2. At the top of the page, the message is displayed to the user informing about the summed number of correct answers. It's been tested that the final number is indeed represented by the sum of the correct answers guessed when taking the quiz.
     3. Depending on number of correct answers (ranges: score 7-10, score 4-6, score 0-3), the user sees different GIF relevant to her/his score. 
     4. Depending on number of correct answers (ranges: score 7-10, score 4-6, score 0-3), the user sees different text messages relevant to her/his score.
