@@ -11,23 +11,11 @@ $(document).ready(function () {
 
     // depending on score result, display different messages and gifs
     if (score >= 7) {
-        $("#results-display").html(`
-        <img class="d-block mx-auto img-fluid" src="https://media.giphy.com/media/g9582DNuQppxC/giphy.gif"
-        alt="super winner gif" />
-        <h3 class="text-center header-margin">Congratulations and BRAVO! You are a walking encyclopaedia!</h3>
-        `);
+        $("#high-score-result").removeClass("d-none");
     } else if (score > 3) {
-        $("#results-display").html(`
-        <img class="d-block mx-auto img-fluid" src="https://media.giphy.com/media/mgqefqwSbToPe/giphy.gif"
-        alt="winner gif" />
-        <h3 class="text-center header-margin">Well done! You are a smart cookie!</h3>
-        `);
+        $("#medium-score-result").removeClass("d-none");
     } else {
-        $("#results-display").html(`
-        <img class="d-block mx-auto img-fluid" src="https://media.giphy.com/media/IoP0PvbbSWGAM/giphy.gif"
-        alt="keep learning gif" />
-        <h3 class="text-center header-margin">As Henry Ford once said, "Failure is only the opportunity to begin again more intelligently."</h3>
-        `);
+        $("#low-score-result").removeClass("d-none");
     }
 
     checkbox.click(function () {
