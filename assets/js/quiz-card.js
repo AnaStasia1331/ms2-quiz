@@ -13,7 +13,9 @@ $(document).ready(function () {
     let score = 0;
     const OPENTDB_URL = "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple";
 
-    // external API https://opentdb.com/ is used to retrieve questions and answers for the quiz
+    /**
+     * external API https://opentdb.com/ is used to retrieve questions and answers for the quiz
+     */
     function fetchTriviaDbQuestions() {
         // first make sure the response from API is completely loaded, then continue the code execution on the response 
         $.when($.getJSON(OPENTDB_URL)).
@@ -35,6 +37,10 @@ $(document).ready(function () {
 
                 }
             },
+            /**
+             * handle error statuses
+             * @param {*} errorResponse 
+             */
             function (errorResponse) {
                 if (errorResponse.status === 404) {
                     // the respective error page will be displayed to user on 404 status
@@ -67,14 +73,20 @@ $(document).ready(function () {
         });
     }
 
+    /**
+     * start quiz by fetching questions from Open Trivia DB API and trigger the event listener on option click
+     */
     function startQuiz() {
         fetchTriviaDbQuestions();
         addOptionEventListeners();
     }
 
+    /**
+     * load new question and options and if all questions are answered, then pass the score value to the session storage
+     */
     function loadNewQuestion() {
         if (questionIndex === MAX_QUESTIONS_NUM) {
-            // create the sessionStorage 'score' variable to pass it to the next page 
+            // set the sessionStorage 'score' variable to pass it to the next page 
             // source: https://lage.us/Javascript-Pass-variables-to-Another-Page.html
             sessionStorage.setItem("score", score);
             // redirect to the Finish quiz page
@@ -84,7 +96,7 @@ $(document).ready(function () {
             currentQuestion = questions[questionIndex];
             questionIndex++;
             question.innerHTML = currentQuestion.question;
-            //load suggested answers in the Question Card 
+            // load suggested answers in the Question Card 
             for (const option of options) {
                 // get the value of the data-number attribute from html that will be also used as an index in currentQuestion.options array
                 const number = option.dataset.number;
@@ -93,6 +105,9 @@ $(document).ready(function () {
         }
     }
 
+    /**
+     * add event listener on option click; validate if the selected option is (in)correct; increase the Correct Answers counter if the answer was correct
+     */
     function addOptionEventListeners() {
         for (const optionLine of optionLines) {
             optionLine.addEventListener("click", function (event) {
@@ -110,23 +125,40 @@ $(document).ready(function () {
         }
     }
 
+    /**
+     * compare the selected option index with the correct answer index
+     * @param {*} selectedAnswerIndex equals to data-number attr. value of the selected option 
+     */
     function checkAnswer(selectedAnswerIndex) {
         return selectedAnswerIndex === currentQuestion.answerIndex;
     }
 
+    /**
+     * increase the Correct Answers counter by 1 
+     */
     function increaseCorrectAnswersNum() {
         document.getElementById('score').innerText = ++score;
     }
 
-    function increaseQuestionCounter() {
+    /**
+     * update the Questions counter  
+     */
+    function updateQuestionCounter() {
         document.getElementById('question-counter').innerText = questionIndex + '/10';
     }
 
-    // source: https://javascript.info/task/shuffle
+    /**
+     * this function will be called to randomly shuffle question options  
+     * source: https://javascript.info/task/shuffle
+     */
     function shuffle(array) {
         array.sort(() => Math.random() - 0.5);
     }
 
+    /**
+     * if selected answer is correct, it will be shown in green; after 700ms the highlighting disappears, the new question is loaded and the Question counter is updated
+     * @param {*} optionLine 
+     */
     function displayAnswerIsCorrect(optionLine) {
         // highlight the answer in green and remove the hover color
         optionLine.classList.add("correct-answer");
@@ -136,10 +168,14 @@ $(document).ready(function () {
             optionLine.classList.remove("correct-answer");
             optionLine.classList.add("hover-option");
             loadNewQuestion();
-            increaseQuestionCounter();
+            updateQuestionCounter();
         }, 700);
     }
 
+    /**
+     * if selected answer is wrong, it will be shown in red; after 700ms the highlighting disappears, the new question is loaded and the Question counter is updated
+     * @param {*} optionLine 
+     */
     function displayAnswerIsIncorrect(optionLine) {
         // highlight the answer in red and remove the hover color
         optionLine.classList.add("incorrect-answer");
@@ -149,10 +185,13 @@ $(document).ready(function () {
             optionLine.classList.remove("incorrect-answer");
             optionLine.classList.add("hover-option");
             loadNewQuestion();
-            increaseQuestionCounter();
+            updateQuestionCounter();
         }, 700);
     }
 
+    /**
+     * remove the loader from the Question Card page and show a Question Card instead
+     */
     function hideLoader() {
         // classes .loader-full-screen and .loader-centered were used to center the loader and must be removed when the question card is displayed   
         questionCardPage.classList.remove('loader-full-screen');

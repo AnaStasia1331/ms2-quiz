@@ -159,7 +159,7 @@ Google Chrome dev tool was used during development to check the responsiveness o
 
 ## Known bugs:
 
-## Code Validation:
+## Further Testing:
 
 # Deployment
 

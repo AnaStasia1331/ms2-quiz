@@ -43,6 +43,10 @@ $(document).ready(function () {
 
     form.addEventListener('submit', handleSubmit);
 
+    /**
+     * this function prevents the default form submit. If the Subscribe checkbox is selected, the user must enter valid email and after submitting it, the auto-reply will be sent out to that address and the user will be redirected to the Home page. If the Subscribe checkbox stays unselected, the user can finish the quiz and will be redirected to the Home page.
+     * @param {*} event 
+     */
     function handleSubmit(event) {
         // to disable the default submit behavior
         event.preventDefault();
@@ -82,7 +86,11 @@ $(document).ready(function () {
         }
 
     }
-    // source: external API https://www.emailjs.com/docs/sdk/send/; this function will send out 2 emails: to the site owner to notify about new subscribe request and the auto-reply to the email address entered in the form
+
+    /**
+     * source: external API https://www.emailjs.com/docs/sdk/send/; this function will send out 2 emails: to the site owner to notify about the new subscribe request and the auto-reply to the email address entered in the form
+     * @param {*} subscribeForm 
+     */
     function sendMail(subscribeForm) {
         return emailjs.send("service_na1mfol", "template_mdnli8f", {
             "from_email": subscribeForm.emailField.value,
