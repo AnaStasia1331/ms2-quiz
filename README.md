@@ -86,7 +86,7 @@ The below list includes all of the languages, frameworks, tools, learning platfo
 ## Debugging 
 - [Chrome dev tools](https://developers.google.com/web/tools/chrome-devtools)
     - modify CSS on-the-fly, test responsiveness, simulate slow network for testing the page loader; 'Console' and 'Sources' tab were helpful in debugging JS code.
-## Learning platforms 
+## Knowledge sources 
 - [Code Institute learning platform](https://codeinstitute.net/)
     - used to revise the theory of JavaScript Essentials and Interective Frontend Development modules, find solutions for JS/JQuery issues.
 - [W3schools](https://www.w3schools.com/)
@@ -152,7 +152,7 @@ Google Chrome dev tool was used during development to make sure the website is r
 
 ## Major bugs discovered and fixed:
 1. When the user hovered over an option and clicked it, the validation (green/red) color was ignored so the user couldn't see if s/he answered correctly. It's been fixed by adding `!important` property to the corresponding css rules.
-2. Special characters in questions and answered were not interpreted correctly. It's been fixed by using `innerHTML()` instead of `innerTEXT()` method when loading question and options in the Question Card.
+2. Special characters in questions and answered were not interpreted correctly. It's been fixed by using `innerHTML()` instead of `innerText()` method when loading question and options in the Question Card.
 3. When the selected answer had special characters, it used to be validated as incorrect even if it was correct. It's been fixed by comparing selected and expected answers indexes instead of their strings.
 4. Valid email address wasn't allowed in case it had 2 dots, e.g. test.test@gmail.com; fixed by replacing `indexOf()` method by `lastIndexOf()` on dot position.
 
@@ -207,6 +207,22 @@ Steps:
 # Credits
 
 ## Code
+Major credits go to:
+- [EmailJS](https://www.emailjs.com/) service for enabling emails sendout on subscription.
+- [Bootstrap 4.6](https://getbootstrap.com/docs/4.6/getting-started/introduction/) libraries that helped me to create responsive UI (used Card component, Form classes and more).
+- solutions taken from [W3schools](https://www.w3schools.com/), e.g. building the loader for the Question card page and fixing a minor issue with the display of the checkbox label.
+- [css-tricks.com](https://css-tricks.com) for fixing the bug about sticky hover on mobile.
+- [javatpoint.com](https://www.javatpoint.com/javascript-form-validation) for the ideas of the email field validation with the help of JS.
+- [lage.us](https://lage.us/Javascript-Pass-Variables-to-Another-Page.html#:~:text=There%20are%20two%20ways%20to,query%20string%20with%20the%20URL.) for the explanations of how to store variable in the session storage.
+- [javascript.info](https://javascript.info/task/shuffle) for the solution of how to shuffle question options. 
+
 ## Content
+The quiz questions with options that I used in my project are retrieved from the external API called [Open Trivia Database](https://opentdb.com/). This API provides free to use, user-contributed trivia question database. The desired category, amount and difficulty of questions can be configured on the website.
+
 ## Media
+- The hero image has been downloaded from [Freepik images](https://www.freepik.com/free-vector/quiz-background-with-flat-objects_1022603.htm#page=1&query=quiz&position=36). 
+- Gifs files for the Finish quiz page are taken from [Giphy](https://giphy.com/).
+
 ## Acknowledgements
+- the creation of the project was inspired by the series of videos called [Build a Quiz App](https://www.youtube.com/watch?v=rFWbAj40JrQ) published on youtube by James Q Quick. 
+- Code Institute for the provided study materials.

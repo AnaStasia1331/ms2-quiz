@@ -87,7 +87,7 @@ $(document).ready(function () {
     function loadNewQuestion() {
         if (questionIndex === MAX_QUESTIONS_NUM) {
             // set the sessionStorage 'score' variable to pass it to the next page 
-            // source: https://lage.us/Javascript-Pass-variables-to-Another-Page.html
+            // source: https://lage.us/Javascript-Pass-Variables-to-Another-Page.html#:~:text=There%20are%20two%20ways%20to,query%20string%20with%20the%20URL.
             sessionStorage.setItem("score", score);
             // redirect to the Finish quiz page
             return window.location.assign("finish-quiz.html");
