@@ -150,12 +150,11 @@ Google Chrome dev tool was used during development to make sure the website is r
 11. ***As a quiz owner, I want to be notified when a quiz player wishes to subscribe to quiz website updates.***
     1. When the user enters correct email address and clicks the Finish button, the website owner receieves [the subscription request email](https://github.com/AnaStasia1331/ms2-quiz/tree/master/assets/images/test-evidence/subscription-request.png).
 
-## Major bugs discovered and fixed (draft):
-- answers were not reshuffled;
-- answer wasn't highlighted when hovered;
-- validation of answers with special characters;
-- email address validation: error message on empty email not shown, email with 2 dots were validated incorrectly;
--  something else?
+## Major bugs discovered and fixed:
+1. When the user hovered over an option and clicked it, the validation (green/red) color was ignored so the user couldn't see if s/he answered correctly. It's been fixed by adding `!important` property to the corresponding css rules.
+2. Special characters in questions and answered were not interpreted correctly. It's been fixed by using `innerHTML()` instead of `innerTEXT()` method when loading question and options in the Question Card.
+3. When the selected answer had special characters, it used to be validated as incorrect even if it was correct. It's been fixed by comparing selected and expected answers indexes instead of their strings.
+4. Valid email address wasn't allowed in case it had 2 dots, e.g. test.test@gmail.com; fixed by replacing `indexOf()` method by `lastIndexOf()` on dot position.
 
 ## Known bugs:
 1. Relevant for small size mobile devices. If an option text is tool long. it's wrapped but the second line is placed too close to the option numbering. Please see the [screenshot](https://github.com/AnaStasia1331/ms2-quiz/tree/master/assets/images/test-evidence/option-text-issue.png).
@@ -178,6 +177,7 @@ Google Chrome dev tool was used during development to make sure the website is r
 - misconfiguration of the external APIs:
     - tested that when calling the EmailJS service is misconfigured, the user sees the [alert](https://github.com/AnaStasia1331/ms2-quiz/tree/master/assets/images/test-evidence/fail-email-sending.png);
     - tested that when Open Trivia DB is misconfigured, the user sees 2 types of errors on [404 status](https://github.com/AnaStasia1331/ms2-quiz/tree/master/assets/images/test-evidence/404-status-load-question.png) and [other statuses](https://github.com/AnaStasia1331/ms2-quiz/tree/master/assets/images/test-evidence/general-error-load-question.png).
+- testing of the README links was performed.
 
 # Deployment
 
