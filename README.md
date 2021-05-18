@@ -105,7 +105,7 @@ The below list includes all of the languages, frameworks, tools, learning platfo
 
 # Testing
 ## Test environments
-Google Chrome dev tool was used during development to check the responsiveness of the website. The final testing of the deployed site was performed on the devices:
+Google Chrome dev tool was used during development to make sure the website is responsiveness. The final testing of the deployed site was performed on the devices:
 - Laptop HP ZBook 15 G3, 1920x1080-pixel screen resolution, Google Chrome browser.
 - Iphone XR with 1792 x 828-pixel screen resolution, Safari browser.
 
@@ -121,7 +121,7 @@ Google Chrome dev tool was used during development to check the responsiveness o
 2.  ***As a quiz player, I want to be able to start the quiz from the Home page.***
     1. The user can click the Start button from the Home page and s/he will be redirected to the Question card with the first question.
 3. ***As a quiz player, I want to see different quiz questions displayed with multiple options to choose from.***
-    1. The Question card page displays [the card with a question and possible answers](https://github.com/AnaStasia1331/ms2-quiz/tree/master/assets/images/test-evidence/question-card.png) to select. There are 10 questions in total. It's been tested that none of the questions are repeating and the answers are re-shuffled so that it won't be so easy for the user to guess correct one.
+    1. The Question card page displays [the card with a question and possible answers](https://github.com/AnaStasia1331/ms2-quiz/tree/master/assets/images/test-evidence/question-card.png) to select. There are 10 questions in total. It's been tested that none of the questions are repeating and the answers are re-shuffled so that it won't be so easy for the user to guess the correct one.
 4. ***As a quiz player, I want to see my total score of correct answers while I'm playing the quiz.***
     1. In the Question card the user can see the Correct answers counter which is initially set to 0. 
     2. As soon as a correct answer is selected, the counter increases by 1.
@@ -158,8 +158,26 @@ Google Chrome dev tool was used during development to check the responsiveness o
 -  something else?
 
 ## Known bugs:
+1. Relevant for small size mobile devices. If an option text is tool long. it's wrapped but the second line is placed too close to the option numbering. Please see the [screenshot](https://github.com/AnaStasia1331/ms2-quiz/tree/master/assets/images/test-evidence/option-text-issue.png).
+2. Relevant for tablet/mobile devices. It's rather an improvement than issue: the background image for the Home page contains the word 'quiz'. On bigger screens the word displays above the Start button, but on smaller screens it starts 'hidding' behind the button.
 
 ## Further Testing:
+
+- [W3C Markup Validator](https://validator.w3.org/) was used to validate every HTML page of the project on syntax error. No issues have been detected.
+![html validator result](assets/images/readme-images/html-validation.png)
+- [Jigsaw](https://jigsaw.w3.org/css-validator/) service was used to validate css files. No validation errors have been detected.
+![css validator result](assets/images/readme-images/css-validation.png)
+- Run the JS files through [Jshint](https://jshint.com/) linter, there are warnings but no major issues.
+- Lighthouse tool was used to audit performance, accessibility, best practice and SEO.
+    - the results for the Home page:
+![Lighthouse validator homepage](assets/images/readme-images/lh-validator-homepage.png)
+    - the results for the Quiz Card page:
+![Lighthouse validator quiz card page](assets/images/readme-images/lh-validator-quiz-card.png)
+    - the results for the Finish Quiz page:
+![Lighthouse validator quiz card page](assets/images/readme-images/lh-validator-finish-quiz.png)
+- misconfiguration of the external APIs:
+    - tested that when calling the EmailJS service is misconfigured, the user sees the [alert](https://github.com/AnaStasia1331/ms2-quiz/tree/master/assets/images/test-evidence/fail-email-sending.png);
+    - tested that when Open Trivia DB is misconfigured, the user sees 2 types of errors on [404 status](https://github.com/AnaStasia1331/ms2-quiz/tree/master/assets/images/test-evidence/404-status-load-question.png) and [other statuses](https://github.com/AnaStasia1331/ms2-quiz/tree/master/assets/images/test-evidence/general-error-load-question.png).
 
 # Deployment
 
