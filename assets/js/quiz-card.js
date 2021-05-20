@@ -39,7 +39,7 @@ $(document).ready(function () {
             },
             /**
              * handle error statuses
-             * @param {*} errorResponse 
+             * @param errorResponse 
              */
             function (errorResponse) {
                 if (errorResponse.status === 404) {
@@ -127,7 +127,7 @@ $(document).ready(function () {
 
     /**
      * compare the selected option index with the correct answer index
-     * @param {*} selectedAnswerIndex equals to data-number attr. value of the selected option 
+     * @param selectedAnswerIndex equals to data-number attr. value of the selected option 
      */
     function checkAnswer(selectedAnswerIndex) {
         return selectedAnswerIndex === currentQuestion.answerIndex;
@@ -157,7 +157,7 @@ $(document).ready(function () {
 
     /**
      * if selected answer is correct, it will be shown in green; after 700ms the highlighting disappears, the new question is loaded and the Question counter is updated
-     * @param {*} optionLine 
+     * @param optionLine 
      */
     function displayAnswerIsCorrect(optionLine) {
         // highlight the answer in green and remove the hover color
@@ -174,7 +174,7 @@ $(document).ready(function () {
 
     /**
      * if selected answer is wrong, it will be shown in red; after 700ms the highlighting disappears, the new question is loaded and the Question counter is updated
-     * @param {*} optionLine 
+     * @param optionLine 
      */
     function displayAnswerIsIncorrect(optionLine) {
         // highlight the answer in red and remove the hover color

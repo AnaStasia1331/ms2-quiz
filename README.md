@@ -44,7 +44,6 @@ As a quiz owner, I want to:
 
 ## Nice-to-have features (not Implemented)
 - Add the Help icon located on the Home page. It should expand on click and provide the instructions for the quiz.
-- Improve validation by not accepting the loading of finish-quiz.html without the 'score' url parameter.
 
 # Technologies Used
 
